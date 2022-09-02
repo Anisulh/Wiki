@@ -1,0 +1,21 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+
+    <h1>Create New Page </h1>
+    <p>Wiki used a language called Markdown to allow users to easily create pages without much knowlege of writing HTML. Click here to <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax" target="_blank">learn more</a></p>
+</br>
+    <h2>Getting Started</h2>
+    <p> After reviewing the syntax for the Markdown Language, start creating your page below:</p>
+    <p>You can always edit a page once it's been created</p>
+    <form method="POST" action="{% url 'create_page'%}">
+      {% csrf_token %}
+      {{ form }}
+      <input type='submit'>
+    </form>
+
+{% endblock %}

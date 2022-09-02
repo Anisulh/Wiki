@@ -1,0 +1,16 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+  <h1>Editing <b>{{title}}</b> Page</h1>
+  <p>Note: Saving an empty page will <b>DELETE</b> the page</p>
+  <form action="{% url 'edit_page' title=title %}" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Save Page">
+  </form>
+
+{% endblock %}
